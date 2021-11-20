@@ -1,0 +1,3 @@
+7.10.1 <Hashed and hierarchical timing wheels: efficient data structures for implementing a timer facility>
+9 并行算法通常以InfiniBand为通信方式。 <Introduction to Distributed System Design>。Google ProtoBuf。
+10.3.2： 编译器如何处理inline函数中的static? inline可以是virtual 吗？

@@ -1,0 +1,2 @@
+1. what the return of range(10) and os.stat. Is it a module or class. Answer, it is a class.
+2. Why there is no resolve about the tuple.

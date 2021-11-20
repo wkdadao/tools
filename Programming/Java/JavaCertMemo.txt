@@ -1,0 +1,82 @@
+1. A method inherited from a base class can be used a implement of a interface's method.
+2. When override, be careful of the access modifier, which should not be smaller.
+3. When using unicode such as '\u0001', don't forget the the single quotes.
+4. Be careful of the static variable when calculating the count to the garbage collection.
+5. Needs packages imports when check if can compile
+6. Nested enum is same with or without static. It can not refer the outer class variable
+7. Array declaration can not have size. new int [5][] is OK. but either int [5][] = null or new int [][5] is not OK. When {}, can not have size
+8. Be cautious of the import for the compilation
+9. In try(), there can only be declaring variables with Close/Autoclose
+10. Note that the inner class should be static when used in the static method such as main
+11. Be careful about for(int i=0; ++i<10;){}
+12. Generics weren’t introduced until Java 5.
+13. Be careful about the upper or lower. java Boombox to call class BoomBox will raise NoClassDefFoundError
+14. Be careful if there is really a extends or implement
+15. The output of the assert should also be considered as an output
+16. Wrong: When javac is using files within a JAR file, it will unJAR the file during compilation.
+17. Integer[] a = {1, null};for (int i : a) { System.out.println(i);} will 1 java.lang.NullPointerException
+18. System.console() is factory
+19. Note that Arrays.binarySearch() doesn’t throw an exception when passed an unsorted array, it just returns an unpredictable (usually negative) result.
+20. A Hashtable does NOT allow any null keys OR null values, but HashMap can have null values.
+21. new A(); the object can be collected in the next line
+22. StringBuilder does not override equals() and hashCode().
+23. Jar can be worked with path together, such as : java -classpath .:test/MyJar.jar GoDeep
+24. 实现Comparable<Score >接口必须实现comparTo<Score >方法！注意与Compartor接口区分开来，Compartor接口要求实现compare方法。
+25. mkdir() no checked exception, Integer.parseInt has NumberFormatException which is not checked either
+26. /home/bob/downloads/*.jar这种写法无效，因为如果有两个jar包都存在games.Chess，系统不知道是哪一个。
+28. switch doesn't support boolean or long
+29. DateFormat and NumberFormat, Calendar supports GetInstance(locale), but can't do df.SetLocale() etc. Locale.setDefault() should be set before GetInstance();
+30. 如果value中有空格，则需要用双引号将该值括起来，如-Dname=”space string”。 System.getProperty("prop.custom"); 和 System.getProperties().getProperty("prop.custom");
+31.可变长参数类型和另外的不可变长参数类型都符合要求，这种情况下，虚拟机会先抛开可变长参数的方法，查找有没有能直接匹配的方法，如果找到再运行，否则去查找可变长参数的方法
+32. 父类仅有带参数的构造器，没有默认构造器，这要注意
+33. Jar引用时不支持通配符
+35. setMaximumFractionDigits是设置小数点后的数字的最max个数~~, setMinimumFractionDigits是设置小数点后的数字的最min个数~~, setMinimumIntegerDigits是设置小数点前的数字的最min个数~~
+36. When to replace a StringBuffer object with a StringBuilder object? 
+    When using versions of Java technology earlier than 5.0. Or When sharing a StringBuffer among multiple threads.
+37. Arrays.sort to sort a Array. Collections.sort to sort a List. new TreeSet(s) to sort a set
+38. 可以用super.f()或者Base.f()引用父类的静态函数。不过super不存在于静态函数中。
+39. public static void takeList(List<? extends A> list) {
+		list = new ArrayList<B>();  //work. because a totally new list
+		list.add(new B()); // not work. the list may has other objs rather than B.
+	}
+40. %[arg_index$][flags][width][.precision]conversion char,
+    - Left-justify this argument
+    + Include a sign (+ or -) with this argument
+    0 Pad this argument with zeroes
+    , Use locale-specific grouping separators (i.e., the comma in 123,456)
+    ( Enclose negative numbers in parentheses
+    width This value indicates the minimum number of characters to print (totally including the '.')
+    precision only counts the ones after '.'
+41. String s = "123.456xyz"; NumberFormat.getInstance().parse(s) can get "123.456"
+    Parses text from the beginning of the given string to produce a number. The method may not use the entire text of the given string. 
+42. Method-local inner classes can use variables from their enclosing methods, only if they are marked "final". Strictly in exam
+43. primitive type convert first, then auto-box
+44. It’s possible for objects, on whom finalize() has been invoked by the JVM, to avoid the GC.
+45. File.list() returns a String[] that contains the names of both the files AND subdirectories within the directory specified. Note that the current directory and its contents are not included.
+46. It’s legal for an overriding method to throw fewer exceptions, and runtime exceptions are in a class hierarchy separate from checked exceptions
+47. Be careful to import some stuff for this program to compile
+48. Static method can not use class's general type
+49. Integer i = 1; i will never be collectable
+50. Collections not Collection has sort()
+51. 优先级中 == 大于 ^&|
+52. When a class implements and extends, the extends declaration comes first. Interface can intend more than interfaces
+53. Don't think too much about the volatile things in exam
+54. The Boolean(String) constructor and valueOf() views null Strings AND Strings that don’t have the value of "true" (case-insensitive) to be false. But print("%b", v). only when null or false, will print false.
+55. java -ea, -da, -dsa, -esa
+56. Regular and method inner classes cannot have static declarations
+57. natural order mean ascII. 1234 先于 ABC 先于 abc
+58. "\\." tells the split method to split Strings whenever the character "." is encountered.
+59. enum EE (ee). print(ee). will only output ee. but if ee.getClass() will EE.ee
+60. there is no super.super no way to refer the grandpa's things.
+61. Object[] oa = s.toArray(); oa have copy. But can not cast, such Integer[]
+62. If you invoke a .class file with no main(), the static init blocks will execute before throwing a NoSuchMethodError exception.
+63. protected void java.lang.Object.finalize() throws Throwable
+64. interface Clickable { void click(); } interface Keyboard extends Clickable { void clic k(); } is OK
+65. Organic<? extends Organic> compound = new Aliphatic<Organic>(); like void f(Organic<? extends Organic> compound);
+66. TreeSets, the default iteration order is ascending. 但PriorityQueu就不是了
+67. when check the class relationship need make sure they can compile
+68. Which can appropriately be thrown by a programmer using Java SE technology to create a desktop application? NumberFormatException
+69. case default: not correct
+71 .String[] tokens = test.split("\s"); compile error. should be "\\s"
+72. implements Runnable, Cloneable more than interfaces
+73. Long and Int l >= -128 && l <= 127 will use cache. Otherwise will new
